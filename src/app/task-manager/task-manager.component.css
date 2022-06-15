@@ -1,0 +1,18 @@
+h1{
+    margin-left: 40%;
+}
+table,th,td{
+    border: 2px solid black;
+}
+
+.red{
+    background-color: red;
+}
+
+.green{
+    background-color: green;
+}
+
+.pink{
+    background-color: pink;
+}

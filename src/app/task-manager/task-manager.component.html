@@ -1,0 +1,30 @@
+<h1>Task Manager</h1>
+<input type="text" [(ngModel)]="taskInput" (change)='getTaskName($event)' placeholder="Enter your task here" />
+<br /><br />
+<select [(ngModel)]="status" (change)="getStatus($event)">
+  <option>Not Started</option>
+  <option>In progress</option>
+  <option>Completed</option>
+</select>
+<br /><br />
+<button  (click)="onAddClick()">Add</button>
+<!-- <button *ngIf="status=='In progress'" (click)="onAddClick()">Save</button>
+<button *ngIf="status=='Completed'" (click)="onAddClick()">Save</button> -->
+
+<br /><br />
+<table>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Status</th>
+      <th colspan="2">Mark done</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of taskData" [ngClass]="{red:item.status=='Not Started', pink:item.status=='In progress',green:item.status=='Completed'}">
+      <td>{{item.taskInput}}</td>
+      <td>{{item.status}}</td>
+      <td><button (click)='onDeleteButton(item.taskInput)'>Delete</button></td>
+    </tr>
+  </tbody>
+</table>
